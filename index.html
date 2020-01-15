@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/flip-clock.css" />
+  <title>Flip Clock</title>
+  <style>
+    body {
+      padding: 50px;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ul class="flip-clock-container flip-1">
+    <li class="flip-item-seconds">10</li>
+    <li class="flip-item-minutes">0</li>
+    <li class="flip-item-hours">0</li>
+    <li class="flip-item-days">01</li>
+  </ul>
+  <br>
+  <ul class="flip-clock-container flip-2">
+    <li class="flip-item-seconds">23</li>
+    <li class="flip-item-minutes">45</li>
+    <li class="flip-item-hours">17</li>
+    <!-- <li class="flip-item-days">01</li> -->
+  </ul>
+  <br>
+  <ul class="flip-clock-container flip-3">
+    <!-- <li class="flip-item-seconds">23</li> -->
+    <li class="flip-item-minutes">45</li>
+    <li class="flip-item-hours">17</li>
+    <!-- <li class="flip-item-days">01</li> -->
+  </ul>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/flip-clock.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.flip-3').on('done', function() {
+        console.log('doooooonnnnnee!');
+      });
+      $('.flip-3').on('beforeFlipping', function(e, data) {
+        console.log('beforeFlipping:', data);
+      });
+      $('.flip-3').on('afterFlipping', function(e, data) {
+        console.log('afterFlipping:', data);
+      });
+      // $('.flip-2').on('done', function() {
+      //   console.log('doooooonnnnnee!');
+      // });
+      // $('.flip-2').on('beforeFlipping', function(e, data) {
+      //   console.log('beforeFlipping:', data);
+      // });
+      // $('.flip-2').on('afterFlipping', function(e, data) {
+      //   console.log('afterFlipping:', data);
+      // });
+    });
+  </script>
+</body>
+
+</html>
