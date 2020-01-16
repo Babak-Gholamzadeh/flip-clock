@@ -30,7 +30,6 @@
   }
 
   function updateState(flipElements, timestamp, flipContainer) {
-
     var values = {};
     var digitValues = {};
     values.seconds = timestamp % 60;
@@ -65,6 +64,7 @@
   function prepareFlipItems(flipContainer) {
     var flipElements = {};
     var timestamp = 0;
+    var itemCount = 0;
     flipContainer.children().each(function () {
       var element = $(this);
       var number = parseInt(element.text());
@@ -87,11 +87,11 @@
         flipElements.days = getFlipItemChildObj('days');
       }
     });
+    flipContainer[0].style.setProperty('--item-count', itemCount);
     return {
       flipElements: flipElements,
       timestamp: timestamp
     };
-
     function prepareFlipItemChild(element, number) {
       return function (flipType) {
         var digitsComponent = new DigitsComponent(number, flipType);
@@ -101,6 +101,7 @@
             element: $(element.children()[i]),
             flipping: false
           });
+        itemCount++;
         return {
           parentElement: element,
           digits: digitsComponent.digits
